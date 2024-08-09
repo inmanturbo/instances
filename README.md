@@ -13,6 +13,12 @@ You can install the package via composer:
 composer require inmanturbo/instances
 ```
 
+You can run the migrations with:
+
+```bash
+php artisan instances:migrate
+```
+
 You can publish and run the migrations with:
 
 ```bash
@@ -31,12 +37,6 @@ This is the contents of the published config file:
 ```php
 return [
 ];
-```
-
-Optionally, you can publish the views using
-
-```bash
-php artisan vendor:publish --tag="instances-views"
 ```
 
 ## Usage
