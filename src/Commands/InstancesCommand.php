@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton\Commands;
+namespace Inmanturbo\Instances\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class InstancesCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'instances';
 
     public $description = 'My command';
 
