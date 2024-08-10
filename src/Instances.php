@@ -53,7 +53,6 @@ class Instances
         return new $modelClass;
     }
 
-
     public function isDisabled(): bool
     {
         return $this->disabled;
