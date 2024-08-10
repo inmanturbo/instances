@@ -5,28 +5,27 @@ namespace Workbench\App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Sushi\Sushi;
 
-class AccountCreated extends Model
+class MoneyAdded extends Model
 {
     use Sushi;
 
     public bool $shouldKeepInstance = true;
-
-    public $tallyLimit = 1;
 
     public $timestamps = true;
 
     public $incrementing = false;
 
     protected $hidden = [
-        //
+        'account_id',
+        'guid',
     ];
 
     protected $guarded = [];
 
     protected $schema = [
-        'name' => 'string',
         'account_id' => 'string',
-        'balance' => 'float',
+        'amount' => 'float',
+        'guid' => 'string',
     ];
 
     public function getKeyName()
@@ -37,9 +36,4 @@ class AccountCreated extends Model
     protected $rows = [
         //
     ];
-
-    public function sushishouldCache()
-    {
-        return false;
-    }
 }

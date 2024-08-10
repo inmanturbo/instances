@@ -19,6 +19,11 @@ class StoreNewInstance
             return $next($data);
         }
 
+        if (isset($data->model->tallyLimit) && $this->getNextTally($data->model->getKey()) > $data->model->tallyLimit) {
+            $data->halt = true;
+            return $next($data);
+        }
+
         $data->newInstance = Instances::newInstanceModel()->forceCreate([
             'event' => $data->event,
             'model' => $data->model->getMorphClass(),

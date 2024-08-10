@@ -5,27 +5,20 @@ namespace Workbench\App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Sushi\Sushi;
 
-class MoneyAdded extends Model
+class AccountData extends Model
 {
     use Sushi;
-
-    public bool $shouldKeepInstance = true;
 
     public $timestamps = true;
 
     public $incrementing = false;
 
-    protected $hidden = [
-        'account_id',
-        'guid',
-    ];
-
     protected $guarded = [];
 
     protected $schema = [
-        'accound_id' => 'string',
-        'amount' => 'float',
-        'guid' => 'string',
+        'account_id' => 'string',
+        'name' => 'string',
+        'balance' => 'float',
     ];
 
     public function getKeyName()

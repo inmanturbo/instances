@@ -78,8 +78,6 @@ class Instances
         }
 
         $this->listenForCreatingEvents();
-        $this->listenForUpdatingEvents();
-        $this->listenForDeletingEvents();
     }
 
     public function listenForCreatingEvents(): void
@@ -92,28 +90,6 @@ class Instances
             StoreNewInstance::class,
             FilterValues::class,
             FillModel::class,
-        ]);
-    }
-
-    public function listenForUpdatingEvents(): void
-    {
-        $this->listen('eloquent.updating*', [
-            EnsureInstanceShouldBeSaved::class,
-            GetAttributes::class,
-            CheckIfInstanceExists::class,
-            StoreNewInstances::class,
-            FilterValues::class,
-            FillModel::class,
-        ]);
-    }
-
-    public function listenForDeletingEvents(): void
-    {
-        $this->listen('eloquent.deleting*', [
-            EnsureInstanceShouldBeSaved::class,
-            GetAttributes::class,
-            CheckIfInstanceExists::class,
-            StoreDeletedInstance::class,
         ]);
     }
 
