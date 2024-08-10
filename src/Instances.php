@@ -2,6 +2,7 @@
 
 namespace Inmanturbo\Instances;
 
+use Inmanturbo\Instances\Pipeline\EnsureInstanceShouldBeSaved;
 use Inmanturbo\Modelware\Facades\Modelware;
 
 class Instances 
@@ -41,21 +42,21 @@ class Instances
     public function listenForCreatingEvents(): void
     {
         $this->listen('creating', [
-            // todo: add your pipes here
+            EnsureInstanceShouldBeSaved::class,
         ]);
     }
 
     public function listenForUpdatingEvents(): void
     {
         $this->listen('updating', [
-            // todo: add your pipes here
+            EnsureInstanceShouldBeSaved::class,
         ]);
     }
 
     public function listenForDeletingEvents(): void
     {
         $this->listen('deleting', [
-            // todo: add your pipes here
+            EnsureInstanceShouldBeSaved::class,
         ]);
     }
 
