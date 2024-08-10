@@ -21,6 +21,7 @@ class StoreNewInstance
 
         if (isset($data->model->tallyLimit) && $this->getNextTally($data->model->getKey()) > $data->model->tallyLimit) {
             $data->halt = true;
+
             return $next($data);
         }
 

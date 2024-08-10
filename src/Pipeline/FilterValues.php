@@ -12,7 +12,7 @@ class FilterValues
     public function __invoke(mixed $data, Closure $next)
     {
         $columns = $data->model->getConnection()->getSchemaBuilder()->getColumnListing($data->model->getTable());
-        
+
         collect($data->model->getFillable())->each(function ($fillable) use (&$columns) {
             if (! in_array($fillable, $columns)) {
                 $columns[] = $fillable;
