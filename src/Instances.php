@@ -4,7 +4,7 @@ namespace Inmanturbo\Instances;
 
 use Inmanturbo\Modelware\Facades\Modelware;
 
-class Instances 
+class Instances
 {
     public bool $disabled = false;
 
@@ -29,7 +29,7 @@ class Instances
             return;
         }
 
-        if(config('instances.disabled', false)) {
+        if (config('instances.disabled', false)) {
             return;
         }
 
@@ -63,6 +63,4 @@ class Instances
     {
         Modelware::add($event, $pipes, prefix: 'instances');
     }
-
 }
-
