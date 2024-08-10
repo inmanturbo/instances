@@ -2,6 +2,7 @@
 
 namespace Inmanturbo\Instances;
 
+use Inmanturbo\Ecow\Pipeline\GetAttributes;
 use Inmanturbo\Instances\Pipeline\EnsureInstanceShouldBeSaved;
 use Inmanturbo\Modelware\Facades\Modelware;
 
@@ -41,22 +42,25 @@ class Instances
 
     public function listenForCreatingEvents(): void
     {
-        $this->listen('creating', [
+        $this->listen('eloquent.creating*', [
             EnsureInstanceShouldBeSaved::class,
+            GetAttributes::class,
         ]);
     }
 
     public function listenForUpdatingEvents(): void
     {
-        $this->listen('updating', [
+        $this->listen('eloquent.updating*', [
             EnsureInstanceShouldBeSaved::class,
+            GetAttributes::class,
         ]);
     }
 
     public function listenForDeletingEvents(): void
     {
-        $this->listen('deleting', [
+        $this->listen('eloquent.deleting*', [
             EnsureInstanceShouldBeSaved::class,
+            GetAttributes::class,
         ]);
     }
 

@@ -4,9 +4,8 @@ namespace Inmanturbo\Ecow\Pipeline;
 
 use Closure;
 use Illuminate\Support\Facades\Pipeline;
-use Inmanturbo\Ecow\Facades\Ecow;
 
-class ExtractData
+class GetAttributes
 {
     /**
      * Invoke the class instance.
@@ -14,7 +13,9 @@ class ExtractData
     public function __invoke($data, Closure $next)
     {
         $data->attributes = Pipeline::send($data)
-            ->through($this->attributePipes())->then(fn($data) => $data->attributes);
+            ->through($this->attributePipes())
+            ->thenReturn()
+            ->attributes;
 
         return $next($data);
     }
