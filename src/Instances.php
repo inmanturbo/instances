@@ -2,8 +2,15 @@
 
 namespace Inmanturbo\Instances;
 
-use Inmanturbo\Ecow\Pipeline\GetAttributes;
+use Inmanturbo\Instances\Pipeline\EnsureInstanceDoesNotAlreadyExist;
+use Inmanturbo\Instances\Pipeline\EnsureInstanceExists;
 use Inmanturbo\Instances\Pipeline\EnsureInstanceShouldBeSaved;
+use Inmanturbo\Instances\Pipeline\FillModel;
+use Inmanturbo\Instances\Pipeline\FilterValues;
+use Inmanturbo\Instances\Pipeline\GetAttributes;
+use Inmanturbo\Instances\Pipeline\StoreDeletedInstance;
+use Inmanturbo\Instances\Pipeline\StoreFirstInstance;
+use Inmanturbo\Instances\Pipeline\StoreNewInstances;
 use Inmanturbo\Modelware\Facades\Modelware;
 
 class Instances
@@ -82,6 +89,10 @@ class Instances
         $this->listen('eloquent.creating*', [
             EnsureInstanceShouldBeSaved::class,
             GetAttributes::class,
+            EnsureInstanceDoesNotAlreadyExist::class,
+            StoreFirstInstance::class,
+            FilterValues::class,
+            FillModel::class,
         ]);
     }
 
@@ -90,6 +101,10 @@ class Instances
         $this->listen('eloquent.updating*', [
             EnsureInstanceShouldBeSaved::class,
             GetAttributes::class,
+            EnsureInstanceExists::class,
+            StoreNewInstances::class,
+            FilterValues::class,
+            FillModel::class,
         ]);
     }
 
@@ -98,6 +113,8 @@ class Instances
         $this->listen('eloquent.deleting*', [
             EnsureInstanceShouldBeSaved::class,
             GetAttributes::class,
+            EnsureInstanceExists::class,
+            StoreDeletedInstance::class,
         ]);
     }
 

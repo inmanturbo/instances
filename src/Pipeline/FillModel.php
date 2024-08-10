@@ -3,18 +3,15 @@
 namespace Inmanturbo\Instances\Pipeline;
 
 use Closure;
-use Inmanturbo\Instances\Facades\Instances;
 
-class EnsureInstanceDoesNotAlreadyExist
+class FillModel
 {
     /**
      * Invoke the class instance.
      */
     public function __invoke(mixed $data, Closure $next)
     {
-        if (Instances::instanceModel()::where('key', $data->model->getKey())->exists()) {
-            return;
-        }
+        $data->model->forceFill($data->attributes);
 
         return $next($data);
     }

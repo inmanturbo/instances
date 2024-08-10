@@ -1,6 +1,6 @@
 <?php
 
-namespace Inmanturbo\Ecow\Pipeline;
+namespace Inmanturbo\Instances\Pipeline;
 
 use Closure;
 use Illuminate\Support\Facades\Pipeline;
