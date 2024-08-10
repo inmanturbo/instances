@@ -46,7 +46,7 @@ class Instances
         return new $modelClass;
     }
 
-    public function newInstancesModel(): Models\Instance
+    public function newInstanceModel(): Models\Instance
     {
         $modelClass = $this->instanceModel();
 

@@ -18,8 +18,17 @@ class InstancesServiceProvider extends PackageServiceProvider
         $package
             ->name('instances')
             ->hasConfigFile()
-            ->hasViews()
-            ->hasMigration('create_instances_table')
+            ->hasMigration('2024_08_09_131035_create_instances_tables')
             ->hasCommand(InstancesCommand::class);
+    }
+
+    public function packageRegistering()
+    {
+        $this->app->singleton(Instances::class);
+    }
+
+    public function packageBooted()
+    {
+        Facades\Instances::bootListeners();
     }
 }

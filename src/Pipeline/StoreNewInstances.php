@@ -19,7 +19,7 @@ class StoreNewInstances
         DB::transaction(function () use (&$data) {
 
             foreach ($data->model->getDirty() as $property => $value) {
-                $newInstance = Instances::newInstanceModel()->forceFill([
+                $newInstance = Instances::newInstanceModel()->forceCreate([
                     'event' => $data->event,
                     'model' => $data->model->getMorphClass(),
                     'key' => $data->model->getKey(),

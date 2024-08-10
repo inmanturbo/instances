@@ -20,7 +20,7 @@ class StoreFirstInstance
             'property' => 'guid',
             'value' => $data->model->getKey(),
             'values' => $data->attributes,
-        ]))->attributes;
+        ]))->values;
 
         return $next($data);
     }
