@@ -24,14 +24,14 @@ beforeEach(function () {
         protected $guarded = [];
     };
 
-    Event::listen('eloquent.created: '. UserCreatedEvent::class, function ($model) {
+    Event::listen('eloquent.created: '.UserCreatedEvent::class, function ($model) {
         $this->userModel->create([
             'id' => $model->user_id,
             'name' => $model->name,
         ]);
     });
 
-    Event::listen('eloquent.updated: '. UserNameChangedEvent::class, function ($model) {
+    Event::listen('eloquent.updated: '.UserNameChangedEvent::class, function ($model) {
         $this->userModel->where('id', $model->user_id)->update([
             'name' => $model->name,
         ]);
@@ -58,7 +58,7 @@ it('updates a user when a UserNameChangedEvent is stored', function () {
     ]);
 
     expect(Instances::instanceModel()::count())->toBe(1);
-    
+
     UserNameChangedEvent::find('fake-uuid')->update([
         'name' => 'Jane Doe',
     ]);
