@@ -27,7 +27,7 @@ return [
      * The table name used to store instances.
      *
      * Changing it is not supported at this time.
-     * 
+     *
      * It's here for reference and to be used by the `instances:migrate` command.
      */
     'instance_table' => 'instances',
@@ -36,7 +36,7 @@ return [
      * The table name used to store snapshots.
      *
      * Changing it is not supported at this time.
-     * 
+     *
      * It's here for reference and to be used by the `instances:migrate` command.
      */
 
