@@ -26,14 +26,14 @@ class Instance extends Model
     public $table = 'instances';
 
     /** @return class-string<Model> */
-    protected function getModelClass(): string
+    protected function getInstanceClass(): string
     {
         return Relation::getMorphedModel($this->model) ?? $this->model;
     }
 
-    public function makeRestoredModel(): Model
+    public function makeInstance(): Model
     {
-        $modelClass = $this->getModelClass();
+        $modelClass = $this->getInstanceClass();
 
         return (new $modelClass)->forceFill($this->values);
     }

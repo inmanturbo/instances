@@ -10,6 +10,25 @@ class Instances
 {
     public bool $disabled = false;
 
+    public function instanceModel(): string
+    {
+        $modelClass = config('instances.instance_model');
+
+        if ($modelClass === Models\Instance::class || is_subclass_of($modelClass, Models\Instance::class)) {
+            return $modelClass;
+        }
+
+        throw Exceptions\InvalidInstanceModel::create($modelClass);
+    }
+
+    public function newModel(): Models\Instance
+    {
+        $modelClass = $this->instanceModel();
+
+        return new $modelClass;
+    }
+
+
     public function isDisabled(): bool
     {
         return $this->disabled;
