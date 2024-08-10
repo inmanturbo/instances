@@ -17,12 +17,12 @@
     ],
     "require": {
         "php": "^8.2",
+        "calebporzio/sushi": "^2.5",
         "illuminate/contracts": "^10.0||^11.0",
         "inmanturbo/modelware": "dev-main",
         "spatie/laravel-package-tools": "^1.16"
     },
     "require-dev": {
-        "calebporzio/sushi": "^2.5",
         "larastan/larastan": "^2.9",
         "laravel/pint": "^1.14",
         "nunomaduro/collision": "^8.1.1||^7.10.0",
