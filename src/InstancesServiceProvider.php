@@ -2,9 +2,9 @@
 
 namespace Inmanturbo\Instances;
 
+use Inmanturbo\Instances\Commands\InstancesCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Inmanturbo\Instances\Commands\InstancesCommand;
 
 class InstancesServiceProvider extends PackageServiceProvider
 {
