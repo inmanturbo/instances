@@ -24,7 +24,7 @@ beforeEach(function () {
         protected $guarded = [];
     };
 
-    Event::listen('eloquent.created: '. UserCreatedEvent::class, function ($model) {
+    Event::listen('eloquent.created: '.UserCreatedEvent::class, function ($model) {
         $this->userModel->create([
             'id' => $model->user_id,
             'name' => $model->name,
