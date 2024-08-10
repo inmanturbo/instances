@@ -15,6 +15,5 @@ class EnsureInstanceShouldBeSaved
             return $next($data);
         }
 
-        return;
     }
 }
