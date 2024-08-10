@@ -54,5 +54,4 @@ class InstanceSnapshot extends Model
     {
         return $this->belongsTo(Instance::class);
     }
-
 }
