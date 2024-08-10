@@ -7,7 +7,6 @@ use Inmanturbo\Instances\Pipeline\EnsureInstanceShouldBeSaved;
 use Inmanturbo\Instances\Pipeline\FillModel;
 use Inmanturbo\Instances\Pipeline\FilterValues;
 use Inmanturbo\Instances\Pipeline\GetAttributes;
-use Inmanturbo\Instances\Pipeline\StoreDeletedInstance;
 use Inmanturbo\Instances\Pipeline\StoreFirstInstance;
 use Inmanturbo\Instances\Pipeline\StoreNewInstance;
 use Inmanturbo\Modelware\Facades\Modelware;

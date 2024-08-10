@@ -31,7 +31,7 @@ beforeEach(function () {
         ]);
     });
 
-    Event::listen('eloquent.created: '. UserNameChangedEvent::class, function ($model) {
+    Event::listen('eloquent.created: '.UserNameChangedEvent::class, function ($model) {
         $this->userModel->where('id', $model->user_id)->update([
             'name' => $model->name,
         ]);
@@ -58,7 +58,7 @@ it('updates a user when a UserNameChangedEvent is stored', function () {
     ]);
 
     expect(Instances::instanceModel()::count())->toBe(1);
-    
+
     UserNameChangedEvent::create([
         'user_id' => 'fake-uuid',
         'name' => 'Jane Doe',

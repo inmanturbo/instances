@@ -18,16 +18,17 @@ beforeEach(function () {
         $table->timestamps();
     });
 
-    $this->accountModel = new class extends Illuminate\Database\Eloquent\Model {
+    $this->accountModel = new class extends Illuminate\Database\Eloquent\Model
+    {
         use HasUuids;
 
         protected $table = 'accounts';
+
         protected $guarded = [];
     };
 
-    Modelware::add('eloquent.created: ' . AccountData::class, [
-        function ($data, Closure $next)
-        {
+    Modelware::add('eloquent.created: '.AccountData::class, [
+        function ($data, Closure $next) {
             $data->model->balance = 0;
 
             foreach (Instances::instanceModel()::where('key', $data->model->getKey())->get() as $event) {
@@ -36,14 +37,13 @@ beforeEach(function () {
                     default => null,
                 };
             }
-    
+
             return $next($data);
         },
     ]);
 
-    Modelware::add('eloquent.created: ' . AccountCreated::class, [
-        function ($data, Closure $next)
-        {
+    Modelware::add('eloquent.created: '.AccountCreated::class, [
+        function ($data, Closure $next) {
             $this->accountModel::create([
                 'id' => $data->model->account_id,
                 'name' => $data->model->name,
@@ -53,12 +53,11 @@ beforeEach(function () {
         },
     ]);
 
-    Modelware::add('eloquent.created: ' . MoneyAdded::class, [
-        function ($data, Closure $next)
-        {
-           $account = $this->accountModel::where('id', $data->model->account_id)
+    Modelware::add('eloquent.created: '.MoneyAdded::class, [
+        function ($data, Closure $next) {
+            $account = $this->accountModel::where('id', $data->model->account_id)
                 ->first();
-            
+
             $account->balance += $data->model->amount;
 
             $account->save();
