@@ -21,7 +21,25 @@ class Instances
         throw Exceptions\InvalidInstanceModel::create($modelClass);
     }
 
-    public function newModel(): Models\Instance
+    public function snapshotModel(): string
+    {
+        $modelClass = config('instances.snapshot_model');
+
+        if ($modelClass === Models\InstanceSnapshot::class || is_subclass_of($modelClass, Models\InstanceSnapshot::class)) {
+            return $modelClass;
+        }
+
+        throw Exceptions\InvalidSnapshotModel::create($modelClass);
+    }
+
+    public function newSnapshotModel(): Models\InstanceSnapshot
+    {
+        $modelClass = $this->snapshotModel();
+
+        return new $modelClass;
+    }
+
+    public function newInstancesModel(): Models\Instance
     {
         $modelClass = $this->instanceModel();
 
