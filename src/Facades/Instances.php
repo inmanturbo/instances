@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Facade;
  * @method static void listenForUpdatingEvents()
  * @method static void listenForDeletingEvents()
  * @method static void listen(string $event, array $pipes)
- * 
+ *
  * @see \Inmanturbo\Instances\Instances
  */
 class Instances extends Facade
