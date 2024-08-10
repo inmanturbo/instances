@@ -5,16 +5,14 @@ namespace Inmanturbo\Instances\Pipeline;
 use Closure;
 use Inmanturbo\Instances\Facades\Instances;
 
-class EnsureInstanceExists
+class CheckIfInstanceExists
 {
     /**
      * Invoke the class instance.
      */
     public function __invoke(mixed $data, Closure $next)
     {
-        if (! Instances::instanceModel()::where('key', $data->model->getKey())->exists()) {
-            return;
-        }
+        $data->exist = Instances::instanceModel()::where('key', $data->model->getKey())->exists();
 
         return $next($data);
     }

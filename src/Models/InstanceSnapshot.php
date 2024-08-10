@@ -19,6 +19,7 @@ class InstanceSnapshot extends Model
 
     public $casts = [
         'values' => 'array',
+        'attributes' => 'array',
     ];
 
     public $guarded = [];

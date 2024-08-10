@@ -18,9 +18,8 @@ return new class extends Migration
             $table->string('key', 40);
             $table->bigInteger('tally')->default(1);
 
-            $table->string('property');
-            $table->longText('value')->nullable();
             $table->json('values');
+            $table->json('attributes');
 
             $table->timestamps();
 
@@ -34,6 +33,7 @@ return new class extends Migration
             $table->bigInteger('tally')->default(1);
             $table->foreignId('instance_id');
             $table->json('values');
+            $table->json('attributes');
         });
     }
 };

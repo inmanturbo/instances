@@ -10,6 +10,7 @@ use Illuminate\Support\Arr;
 
 /**
  * @property array $values
+ * @property array $attributes
  * @property string $model
  * @property Carbon $created_at
  */
@@ -19,6 +20,7 @@ class Instance extends Model
 
     public $casts = [
         'values' => 'array',
+        'attributes' => 'array',
     ];
 
     public $guarded = [];

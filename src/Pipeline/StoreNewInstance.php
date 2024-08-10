@@ -6,27 +6,27 @@ use Closure;
 use Inmanturbo\Instances\Concerns\GetsNextTally;
 use Inmanturbo\Instances\Facades\Instances;
 
-class StoreDeletedInstance
+class StoreNewInstance
 {
     use GetsNextTally;
 
     /**
      * Invoke the class instance.
      */
-    public function __invoke(mixed $data, Closure $next)
+    public function __invoke($data, Closure $next)
     {
         if (! $data->exist) {
             return $next($data);
         }
 
-        Instances::modelClass()::create([
+        $data->newInstance = Instances::newInstanceModel()->forceCreate([
             'event' => $data->event,
             'model' => $data->model->getMorphClass(),
             'key' => $data->model->getKey(),
             'tally' => $this->getNextTally($data->model->getKey()),
-            'property' => 'guid',
-            'value' => $data->model->getKey(),
-            'values' => $data->attributes,
+            'model' => $data->model->getMorphClass(),
+            'values' => $data->model->getDirty(),
+            'attributes' => $data->attributes,
         ]);
 
         return $next($data);
