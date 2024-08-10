@@ -19,7 +19,7 @@
         "php": "^8.2",
         "calebporzio/sushi": "^2.5",
         "illuminate/contracts": "^10.0||^11.0",
-        "inmanturbo/modelware": "dev-main",
+        "inmanturbo/modelware": "^1.0",
         "spatie/laravel-package-tools": "^1.16"
     },
     "require-dev": {
@@ -82,11 +82,5 @@
         }
     },
     "minimum-stability": "dev",
-    "prefer-stable": true,
-    "repositories": [
-        {
-            "type": "path",
-            "url": "../modelware"
-        }
-    ]
+    "prefer-stable": true
 }
