@@ -1,6 +1,6 @@
 <?php
 
-namespace Inmanturbo\EventModels\Models;
+namespace Inmanturbo\Instances\Models;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\MassPrunable;
