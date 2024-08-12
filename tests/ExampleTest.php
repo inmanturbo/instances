@@ -88,7 +88,7 @@ function limitMiddleware()
 {
     return function ($number, $next) {
         if ($number > 2) {
-            dump($number);
+            echo $number;
         }
 
         return $next($number);
