@@ -1,6 +1,6 @@
 {
     "name": "inmanturbo/instances",
-    "description": "An eloquent event store for laravel",
+    "description": "An eloquent store for laravel",
     "keywords": [
         "inmanturbo",
         "laravel",
