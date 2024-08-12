@@ -89,10 +89,7 @@ return [
 
 ## Usage
 
-```php
-$instances = new Inmanturbo\Instances();
-echo $instances->echoPhrase('Hello, Inmanturbo!');
-```
+Work in progress. See [tests](https://github.com/inmanturbo/instances/tree/main/tests/Feature) for usage.
 
 ## Testing
 
