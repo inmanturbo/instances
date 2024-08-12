@@ -21,7 +21,6 @@ class FilterValues
 
         collect($data->attributes)->each(function ($value, $key) use ($columns, $data) {
             if (! in_array($key, $columns)) {
-                dump($key, $columns);
                 unset($data->attributes[$key]);
                 if (isset($data->model->$key)) {
                     unset($data->model->$key);
