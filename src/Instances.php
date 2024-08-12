@@ -92,6 +92,30 @@ class Instances
         ]);
     }
 
+    public function listenForUpdatingEvents(): void
+    {
+        $this->listen('eloquent.updating*', [
+            EnsureInstanceShouldBeSaved::class,
+            GetAttributes::class,
+            CheckIfInstanceExists::class,
+            StoreNewInstance::class,
+            FilterValues::class,
+            FillModel::class,
+        ]);
+    }
+
+    public function listenForDeletingEvents(): void
+    {
+        $this->listen('eloquent.deleting*', [
+            EnsureInstanceShouldBeSaved::class,
+            GetAttributes::class,
+            CheckIfInstanceExists::class,
+            StoreNewInstance::class,
+            FilterValues::class,
+            FillModel::class,
+        ]);
+    }
+
     public function listen(string $event, array $pipes): void
     {
         Modelware::add($event, $pipes, prefix: 'instances');
