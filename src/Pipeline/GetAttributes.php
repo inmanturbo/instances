@@ -46,7 +46,6 @@ class GetAttributes
 
                 return $next($data);
             },
-
         ];
     }
 }
