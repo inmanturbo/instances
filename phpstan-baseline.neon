@@ -1,0 +1,11 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$halt\\.$#"
+			count: 1
+			path: src/Pipeline/StoreNewInstance.php
+
+		-
+			message: "#^Call to an undefined method object\\:\\:getKey\\(\\)\\.$#"
+			count: 1
+			path: src/Pipeline/StoreNewInstance.php
