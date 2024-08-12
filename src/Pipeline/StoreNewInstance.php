@@ -30,7 +30,6 @@ class StoreNewInstance
             'model' => $data->model->getMorphClass(),
             'key' => $data->model->getKey(),
             'tally' => $this->getNextTally($data->model->getKey()),
-            'model' => $data->model->getMorphClass(),
             'values' => $data->model->getDirty(),
             'attributes' => $data->attributes,
         ]);
