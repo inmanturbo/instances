@@ -111,8 +111,6 @@ class Instances
             GetAttributes::class,
             CheckIfInstanceExists::class,
             StoreNewInstance::class,
-            FilterValues::class,
-            FillModel::class,
         ]);
     }
 
